@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<meta charset='utf-8'>
+
+<head>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/hot-sneaks/jquery-ui.css" type="text/css" />
+      <link rel="stylesheet" href="app.css" type="text/css" />
+      
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+    <script src="app.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+ <div id='slider'></div>
+
+    <div class="loop-item" id='outer-container'>
+
+        <div class='outer-loop' id='outer-1'></div>
+        <div class='outer-loop' id='outer-5'></div>
+        <div class='outer-loop' id='outer-9'></div>
+        <div class='outer-loop' id='outer-13'></div>
+    
+
+    </div>
+
+       <div class="loop-item" id='outer-container'>
+
+        <div class='inner-loop' id='inner-1'></div>
+        <div class='inner-loop' id='inner-2'></div>
+        <div class='inner-loop' id='inner-3'></div>
+        <div class='inner-loop' id='inner-4'></div>
+    
+
+    </div>
+
+
+
+
+
+    <script>
+
+
+$(function(){
+
+    var outerLoopCounter = 1;
+    var color;
+
+    $("#inner-1").css("background-color","brown");
+    $("#outer-1").css("background-color","red");
+
+              $("#slider").slider({
+                        orientation: "horizontal",
+                        range: false,
+                        min: 1,
+                        max: 16,
+                        value: 0,
+                        step: 1,
+                        animate: true,
+                        change: function(event, ui) {
+
+                        },
+                        slide: function(event, ui) {
+
+                        var i = (ui.value % 4) || 4;
+                        var outerLoopCounter = ui.value;
+
+
+                        console.log(i)
+
+                        $(".inner-loop").css("background-color","orange");
+                        $("#inner-" + i).css("background-color","brown");
+
+                        console.log(outerLoopCounter)
+
+                        if(ui.value=== 1||ui.value=== 5||ui.value=== 9||ui.value=== 13){
+                            $(".outer-loop").css("background-color","orange");
+                            $("#outer-" + outerLoopCounter).css("background-color","red");
+                        }else if(ui.value===16){
+                            $(".outer-loop").css("background-color","orange");
+                        }
+
+
+                        }
+                });
+
+})
+
+
+
+
+
+
+
+
+    </script>
+
+
+    <style>
+
+
+    .outer-loop {
+        display:inline-block;
+        background-color:orange;
+        position:relative;
+        margin-top:30px;
+        width:100px;
+        height:100px;
+        border-style:solid;
+    }
+
+        .inner-loop {
+        display:inline-block;
+        background-color:orange;
+        position:relative;
+        margin-top:30px;
+        width:100px;
+        height:100px;
+        border-style:solid;
+    }
+
+    </style>
+
+
+</body>
