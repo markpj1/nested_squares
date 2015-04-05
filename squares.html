@@ -68,23 +68,23 @@ $(function(){
                         },
                         slide: function(event, ui) {
 
-                        var i = (ui.value % 4) || 4;
-                        var outerLoopCounter = ui.value;
+                            var i = (ui.value % 4) || 4;
+                            var outerLoopCounter = ui.value;
+    
+    
+                             
+    
+                            $(".inner-loop").css("background-color","orange");
+                            $("#inner-" + i).css("background-color","brown");
 
+                     
 
-                        console.log(i)
-
-                        $(".inner-loop").css("background-color","orange");
-                        $("#inner-" + i).css("background-color","brown");
-
-                        console.log(outerLoopCounter)
-
-                        if(ui.value=== 1||ui.value=== 5||ui.value=== 9||ui.value=== 13){
-                            $(".outer-loop").css("background-color","orange");
-                            $("#outer-" + outerLoopCounter).css("background-color","red");
-                        }else if(ui.value===16){
-                            $(".outer-loop").css("background-color","orange");
-                        }
+                            if(ui.value=== 1||ui.value=== 5||ui.value=== 9||ui.value=== 13){
+                                $(".outer-loop").css("background-color","orange");
+                                $("#outer-" + outerLoopCounter).css("background-color","red");
+                            }else if(ui.value===16){
+                                $(".outer-loop").css("background-color","orange");
+                            }
 
 
                         }
